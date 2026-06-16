@@ -81,8 +81,6 @@ class _LogTile extends StatelessWidget {
 
   final TaskLog log;
 
-  static final _timeFormat = DateFormat('HH:mm:ss');
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -96,7 +94,7 @@ class _LogTile extends StatelessWidget {
         size: 20,
       ),
       title: Text(
-        _timeFormat.format(log.timestamp),
+        TaskLogsView._timeFormat.format(log.timestamp),
         style: theme.textTheme.bodyMedium,
       ),
       subtitle: log.errorMessage != null

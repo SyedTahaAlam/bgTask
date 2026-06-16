@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../dashboard/controller/dashboard_controller.dart';
+import '../../../core/utils/constants.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -54,23 +55,24 @@ class SettingsPage extends StatelessWidget {
           Card(
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             child: Column(
-              children: const [
-                ListTile(
+              children: [
+                const ListTile(
                   leading: Icon(Icons.info_outline),
                   title: Text('Version'),
                   trailing: Text('1.0.0'),
                 ),
-                Divider(height: 1),
+                const Divider(height: 1),
                 ListTile(
-                  leading: Icon(Icons.timer_outlined),
-                  title: Text('Task Interval'),
-                  trailing: Text('5 seconds'),
+                  leading: const Icon(Icons.timer_outlined),
+                  title: const Text('Task Interval'),
+                  trailing: Text('${AppConstants.taskIntervalMs ~/ 1000} seconds'),
                 ),
-                Divider(height: 1),
+                const Divider(height: 1),
                 ListTile(
-                  leading: Icon(Icons.loop),
-                  title: Text('WorkManager Interval'),
-                  trailing: Text('15 minutes'),
+                  leading: const Icon(Icons.loop),
+                  title: const Text('WorkManager Interval'),
+                  trailing:
+                      Text('${AppConstants.workManagerIntervalMinutes} minutes'),
                 ),
               ],
             ),

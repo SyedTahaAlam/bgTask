@@ -14,10 +14,9 @@ import '../../settings/settings_page.dart';
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
 
-  static final _dateFormat = DateFormat('dd MMM, HH:mm:ss');
-
   @override
   Widget build(BuildContext context) {
+    final dateFormat = DateFormat('dd MMM, HH:mm:ss');
     // Lazily put the controller if not already registered.
     if (!Get.isRegistered<DashboardController>()) {
       Get.put(DashboardController());
@@ -97,7 +96,7 @@ class DashboardPage extends StatelessWidget {
                       final last = controller.lastExecutionTime.value;
                       return StatsCard(
                         label: 'Last Execution',
-                        value: last != null ? _dateFormat.format(last) : '—',
+                        value: last != null ? dateFormat.format(last) : '—',
                         icon: Icons.access_time,
                         color: theme.colorScheme.secondary,
                       );
